@@ -271,10 +271,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wario2Idle
       objectReference: {fileID: 0}
-    - target: {fileID: 100042, guid: c6d97f88601afc6458e3545a03e9c496, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: c6d97f88601afc6458e3545a03e9c496, type: 3}
       propertyPath: m_RootOrder
       value: 1

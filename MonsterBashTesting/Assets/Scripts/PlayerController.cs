@@ -243,6 +243,8 @@ public class PlayerController : MonoBehaviour
         isCarrying = true;
         canMove = true;
 
+        //make sure to check animation times to determine wait times
+
         while (isCarrying)
         {
             //bash
