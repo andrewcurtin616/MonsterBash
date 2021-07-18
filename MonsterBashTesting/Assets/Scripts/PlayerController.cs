@@ -285,14 +285,36 @@ public class PlayerController : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.25f);
                 canMove = true;
+                isCarrying = false;
+                break;
             }
 
             //Piledrive
-            if (Input.GetKeyDown(KeyCode.LeftControl) && !checkGround()) { }
+            if (Input.GetKeyDown(KeyCode.LeftControl) && !checkGround())
+            {
+                StartCoroutine("Piledrive");
+                break;
+            }
 
             yield return null;
         }
 
+    }
+    IEnumerator Piledrive()
+    {
+        canMove = false;
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.down * 300);
+        dashCollider.enabled = true;
+
+        while (!isGrounded)
+        {
+            rb.velocity = rb.velocity;
+            yield return null;
+        }
+        isCarrying = false;
+        dashCollider.enabled = false;
+        StartCoroutine("BounceUp");
     }
 
     IEnumerator Dash()
